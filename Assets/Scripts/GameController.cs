@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if(PauseControl.GameIsPaused)
+            return;
         List<TilePiece> finishedUpdating = new List<TilePiece>();
         for(int i = 0; i < update.Count; i++) {
             TilePiece piece = update[i];

@@ -22,6 +22,8 @@ public class RotateTiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseControl.GameIsPaused)
+            return;
         UpdatePosition();
         if (Input.GetMouseButtonDown(0)) {
             game.RotatePieces(new TileCoord((x / 120) - 1, (y / -120) - 1), false);
