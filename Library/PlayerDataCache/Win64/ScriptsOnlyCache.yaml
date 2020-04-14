@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Shadow
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Puzzle0-1.unity:
@@ -46,31 +47,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11156}
     - Class: 114
-      Script: {instanceID: 11322}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11362}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11708}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 12024}
+      Script: {instanceID: 12028}
     - Class: 114
-      Script: {instanceID: 12054}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 12312}
+      Script: {instanceID: 12316}
     - Class: 114
-      Script: {instanceID: 12704}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 13090}
+      Script: {instanceID: 13094}
+    - Class: 114
+      Script: {instanceID: 13126}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -294,7 +297,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 13b2b39b393d0904da45072b59559a55
+      Hash: 9b46542051f0eabe15e123167cb098cf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController

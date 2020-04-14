@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public BoardLayout boardLayout;
+    public float gameTimer = 90.0f;
+    public static bool gameActive = true;
 
     [Header("UI Elements")]
     public Sprite[] tiles;
     public RectTransform gameBoard;
     public RectTransform removedBoard;
+    public Text Score;
+    public Text Combo;
+    public Text Multiplier;
+    public Text bestScore;
+    public Text bestCombo;
+    public Text Timer;
+    public Slider multiplierTimer;
+    public GameObject gameOverMenu;
 
     [Header("Prefabs")]
     public GameObject tilePiece;
@@ -19,6 +30,10 @@ public class GameController : MonoBehaviour
     int height = 7;
     int[] fills;
     Tile[,] board;
+    [HideInInspector]
+    public static double maxScore;
+    [HideInInspector]
+    public static int maxCombo;
 
     List<TilePiece> update;
     List<TilePiece> dead;
@@ -33,13 +48,23 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if(PauseControl.GameIsPaused)
+        if(gameTimer <= 0.0f)
+            gameOver();
+        if(PauseControl.GameIsPaused || !gameActive)
             return;
+        gameTimer -= Time.deltaTime;
+        Timer.text = ((int)gameTimer).ToString();
+        multiplierTimer.value -= Time.deltaTime;
+        if(multiplierTimer.value <= 0.0f){
+            Combo.text  = "0";
+            Multiplier.text = "1x";
+        }
         List<TilePiece> finishedUpdating = new List<TilePiece>();
         for(int i = 0; i < update.Count; i++) {
             TilePiece piece = update[i];
+            if (piece == null)
+                continue;
             if (!piece.UpdatePiece()) {
-                Debug.Log("buuuuh");
                 finishedUpdating.Add(piece);
             }
         }
@@ -61,10 +86,32 @@ public class GameController : MonoBehaviour
                     }
                     tile.SetPiece(null);
                 }
-                ApplyGravityToBoard();
+                multiplierTimer.value += 1.5f + (matches.Count - 3) * .2f;
+                int comboVal = int.Parse(Combo.text);
+                comboVal += 1 + (matches.Count - 3) / 2;
+                if(comboVal > maxCombo)
+                    maxCombo = comboVal;
+                Combo.text = comboVal.ToString();
+                int scoreMult = 1 + comboVal  / 10;
+                if(scoreMult > 5)
+                    scoreMult = 5;
+                Multiplier.text = scoreMult + "x";
+                double scoreVal = double.Parse(Score.text);
+                scoreVal += (matches.Count - 2) * 100 *  scoreMult;
+                if(scoreVal > maxScore)
+                    maxScore = scoreVal;
+                Score.text = string.Format("{0:0000000000000}", scoreVal);
             }
+            ApplyGravityToBoard();
             update.Remove(piece);
         }
+    }
+
+    void gameOver(){
+        gameActive = false;
+        bestCombo.text = maxCombo.ToString();
+        bestScore.text = string.Format("{0:0000000000000}", maxScore);
+        gameOverMenu.SetActive(true);
     }
 
     public void ApplyGravityToBoard() {
@@ -168,9 +215,10 @@ public class GameController : MonoBehaviour
                 GameObject gameTile = Instantiate(tilePiece, gameBoard);
                 TilePiece piece = gameTile.GetComponent<TilePiece>();
                 RectTransform rect = gameTile.GetComponent<RectTransform>();
-                rect.anchoredPosition = new Vector2(60 + (120 * x), -60 - (120 * y));
+                rect.anchoredPosition = new Vector2(60 + (120 * x), -60 - (120 * (y - 7)));
                 piece.Initialize(type, new TileCoord(x, y), tiles[type - 1]);
                 tile.SetPiece(piece);
+                ResetPiece(piece);
             }
         }
     }

@@ -14,7 +14,7 @@ public class TilePiece : MonoBehaviour
     [HideInInspector]
     public RectTransform rect;
 
-    bool updating;
+    //bool updating;
     Image img;
 
     public void Initialize(int type, TileCoord pos, Sprite tile)
@@ -50,13 +50,13 @@ public class TilePiece : MonoBehaviour
         if(Vector3.Distance(rect.anchoredPosition, pos) > 1)
         {
             MovePositionTo(pos);
-            updating = true;
+            //updating = true;
             return true;
         }
         else
         {
             rect.anchoredPosition = pos;
-            updating = false;
+            //updating = false;
             return false;
         }
     }
