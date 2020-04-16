@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public BoardLayout boardLayout;
-    public float gameTimer = 90.0f;
+    public float gameTimer = 120.0f;
     public static bool gameActive = true;
+    public bool gameStart = false;
+    public AudioClip matchSound;
+    private AudioSource source {get {return GetComponent<AudioSource>();}}
 
     [Header("UI Elements")]
     public Sprite[] tiles;
@@ -52,8 +55,13 @@ public class GameController : MonoBehaviour
             gameOver();
         if(PauseControl.GameIsPaused || !gameActive)
             return;
-        gameTimer -= Time.deltaTime;
-        Timer.text = ((int)gameTimer).ToString();
+        if(StartControl.Endless){
+            Timer.text = '\u221E'.ToString();
+        }
+        else if(gameStart){
+            gameTimer -= Time.deltaTime;
+            Timer.text = ((int)gameTimer).ToString();
+        }
         multiplierTimer.value -= Time.deltaTime;
         if(multiplierTimer.value <= 0.0f){
             Combo.text  = "0";
@@ -76,6 +84,7 @@ public class GameController : MonoBehaviour
             List<TileCoord> matches = matchFinder(piece.index, true);
             Debug.Log(matches.Count);
             if (matches.Count > 0) {
+                source.PlayOneShot(matchSound, .25f);
                 foreach (TileCoord pos in matches) {
                     RemovePiece(pos);
                     Tile tile = getTile(pos);
@@ -86,7 +95,7 @@ public class GameController : MonoBehaviour
                     }
                     tile.SetPiece(null);
                 }
-                multiplierTimer.value += 1.5f + (matches.Count - 3) * .2f;
+                multiplierTimer.value += 1.5f + (matches.Count - 3) * .5f;
                 int comboVal = int.Parse(Combo.text);
                 comboVal += 1 + (matches.Count - 3) / 2;
                 if(comboVal > maxCombo)
@@ -100,7 +109,7 @@ public class GameController : MonoBehaviour
                 scoreVal += (matches.Count - 2) * 100 *  scoreMult;
                 if(scoreVal > maxScore)
                     maxScore = scoreVal;
-                Score.text = string.Format("{0:0000000000000}", scoreVal);
+                Score.text = string.Format("{0:000000000}", scoreVal);
             }
             ApplyGravityToBoard();
             update.Remove(piece);
@@ -110,7 +119,7 @@ public class GameController : MonoBehaviour
     void gameOver(){
         gameActive = false;
         bestCombo.text = maxCombo.ToString();
-        bestScore.text = string.Format("{0:0000000000000}", maxScore);
+        bestScore.text = string.Format("{0:000000000}", maxScore);
         gameOverMenu.SetActive(true);
     }
 

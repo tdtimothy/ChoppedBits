@@ -26,10 +26,14 @@ public class RotateTiles : MonoBehaviour
             return;
         UpdatePosition();
         if (Input.GetMouseButtonDown(0)) {
+            if(!game.gameStart)
+                game.gameStart = true;
             game.RotatePieces(new TileCoord((x / 120) - 1, (y / -120) - 1), false);
         }
 
         if (Input.GetMouseButtonDown(1)) {
+            if(!game.gameStart)
+                game.gameStart = true;
             game.RotatePieces(new TileCoord((x / 120) - 1, (y / -120) - 1), true);
         }
     }
