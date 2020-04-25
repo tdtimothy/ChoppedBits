@@ -16,13 +16,12 @@ public class RotateTiles : MonoBehaviour
     void Start()
     {
         game = GetComponent<GameController>();
-        UpdatePosition();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PauseControl.GameIsPaused)
+        if(PauseControl.GameIsPaused || !game.gameActive)
             return;
         UpdatePosition();
         if (Input.GetMouseButtonDown(0)) {
@@ -43,7 +42,6 @@ public class RotateTiles : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, Input.mousePosition, null, out RelativePos);
         x = Mathf.RoundToInt(((RelativePos.x + 480) / gridWidth) ) * 120;
         y = Mathf.RoundToInt(((RelativePos.y - 420) / gridHeight) ) * 120;
-        //Debug.Log("  a:" + RelativePos + " b: " + x + "c: " + y);
         if(x < 120)
             x = 120;
         else if(x > 840)

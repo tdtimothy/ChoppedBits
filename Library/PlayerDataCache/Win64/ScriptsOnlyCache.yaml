@@ -57,35 +57,35 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11158}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11328}
+      Script: {instanceID: 11324}
     - Class: 114
-      Script: {instanceID: 11368}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 11708}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 12030}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 12032}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 12062}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12318}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13096}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13100}
     - Class: 114
-      Script: {instanceID: 21390}
+      Script: {instanceID: 13132}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -124,33 +124,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11158}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11328}
+      Script: {instanceID: 11324}
     - Class: 114
-      Script: {instanceID: 11368}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11422}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 11654}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11708}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 11908}
     - Class: 114
-      Script: {instanceID: 13096}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 16994}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 18590}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 21390}
+      Script: {instanceID: 13036}
     - Class: 114
-      Script: {instanceID: 21396}
+      Script: {instanceID: 13100}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -314,6 +314,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 68b1c8036b0423fb40a158c8868367a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DialogueController
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -356,6 +362,18 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MusicPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 738c23b7b3b2a8414d48e37a088fd920
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClickSound
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -374,7 +392,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 460ebf0830b3ee12b94c0b7d7504678e
+      Hash: a313629aed424b5d9ad1d4ef2160a49f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -404,7 +422,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: c8c5e65e9fb858572516474d6e2102bc
+      Hash: 0a28c03f0fce1fa2a26c61587e878687
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseControl
@@ -524,6 +542,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 5471af86a5a26e44d52861a19084d435
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartControl
+  - hash:
+      serializedVersion: 2
       Hash: df434544c9f7b33d1cc7e635b180d279
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -618,32 +642,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5471af86a5a26e44d52861a19084d435
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: StartControl
-  - hash:
-      serializedVersion: 2
-      Hash: 738c23b7b3b2a8414d48e37a088fd920
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ClickSound
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MusicPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 68b1c8036b0423fb40a158c8868367a9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DialogueController
   platform: 19
   scenePathNames:
   - Assets/Scenes/StartingScene.unity
   - Assets/Scenes/Puzzle0-1.unity
-  playerPath: F:/Desktop/csPlayable/Chopped Bits.exe
+  playerPath: F:/Desktop/Windows/Chopped Bits.exe

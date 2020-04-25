@@ -8,11 +8,12 @@ public class PauseControl : MonoBehaviour
     public static bool GameIsPaused = false;
     
     public GameObject pauseMenuUI;
- 
+    public GameController game;
+
      // Update is called once per frame
     void Update()
     {
-        if(!GameController.gameActive)
+        if(!game.gameActive)
             return;
         if(Input.GetKeyDown(KeyCode.Escape)) {
             if (GameIsPaused)
@@ -35,6 +36,7 @@ public class PauseControl : MonoBehaviour
     public void RestartGame() {
         Time.timeScale = 1f;
         GameIsPaused = false;
+        //GameController.gameActive = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitGame() {

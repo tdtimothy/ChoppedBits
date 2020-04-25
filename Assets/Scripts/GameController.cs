@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public BoardLayout boardLayout;
     public float gameTimer = 120.0f;
-    public static bool gameActive = true;
+    public bool gameActive = true;
     public bool gameStart = false;
     public AudioClip matchSound;
     private AudioSource source {get {return GetComponent<AudioSource>();}}

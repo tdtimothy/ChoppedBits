@@ -942,6 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 428651103}
+  game: {fileID: 1967094944}
 --- !u!1 &501002154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +2934,7 @@ MonoBehaviour:
     - row: 0000000000000000
     - row: 0000000000000000
   gameTimer: 120
+  gameActive: 1
   gameStart: 0
   matchSound: {fileID: 8300000, guid: e7369c379b0543d4180f2ac4a70e1243, type: 3}
   tiles:
